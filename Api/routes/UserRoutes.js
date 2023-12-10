@@ -1,9 +1,7 @@
 import express from 'express'
 export const router = express.Router()
-
-router.get('/',(req,res)=>{
-    res.send({msg: "ok"})
-})
+import { test } from '../contrillers/userCrrl.js'
+router.get('/',test)
 
 export default  router;
 
