@@ -17,4 +17,15 @@ app.use('/api/auth', authRouter)
 app.listen(4000,()=>{
     console.log("Server started"
     )
+});
+
+app.use((err, req, res, next) => {
+
+    const stCode = err.statusCode || 500;
+    const message = err.message || "Internal Server error";
+    return res.status(stCode).json({
+        success: false,
+        message, stCode
+    });
+
 })
